@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/apex_tracker?currentSchema=orderexecution
+    url: jdbc:postgresql://apex-postgres:5432/apex_tracker?currentSchema=orderexecution
     username: postgres
     password: P@ssw0rd1
     driver-class-name: org.postgresql.Driver
@@ -22,7 +22,7 @@ spring:
     show-sql: true
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: apex-kafka:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
