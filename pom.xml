@@ -25,23 +25,32 @@
         <lombok.version>1.18.30</lombok.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.rbrcloud</groupId>
+            <artifactId>apex-shared-lib</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
         <!-- H2 for in-memory unit tests (no Docker required) -->
@@ -61,20 +70,6 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>com.rbrcloud</groupId>-->
-<!--            <artifactId>shared-lib</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
-
-        <dependency>
-            <groupId>com.rbrcloud.apex</groupId>
-            <artifactId>apex-order-srvc</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <classifier>lib</classifier>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

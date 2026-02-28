@@ -1,9 +1,19 @@
 spring:
   datasource:
-    url: jdbc:postgresql://apex-postgres:5432/apex_tracker?currentSchema=orderexecution
-    username: postgres
-    password: P@ssw0rd1
+    url: jdbc:postgresql://${DB_HOST}/${DB_NAME}?currentSchema=orderexecution&sslmode=require&channel_binding=require
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 30000
+
+  flyway:
+    enabled: true
+    default-schema: orderexecution
+    create-schemas: false
+    baseline-on-migrate: true
+    baseline-version: 0
 
   jpa:
     # JPA specific properties (how spring interacts with database)
@@ -33,7 +43,7 @@ spring:
         spring.json.type.mapping: "orderPlacedEvent:com.rbrcloud.ordersrvc.dto.OrderPlacedEvent"
 
 server:
-  port: 8081
+  port: 8080
 
 market-data-srvc:
   url: http://market-data-srvc:8080
